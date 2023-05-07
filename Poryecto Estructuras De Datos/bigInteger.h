@@ -40,9 +40,9 @@ class bigInteger{
         bigInteger operator*(bigInteger &bigInt);
         bigInteger operator/(bigInteger &bigInt);
         bigInteger operator%(bigInteger &bigInt);
-        bigInteger operator==(bigInteger &bigInt);
-        bigInteger operator<(bigInteger &bigInt);
-        bigInteger operator<=(bigInteger &bigInt);
+        bool operator==(bigInteger &bigInt);
+        bool operator<(bigInteger &bigInt);
+        bool operator<=(bigInteger &bigInt);
 
 };
 #endif
