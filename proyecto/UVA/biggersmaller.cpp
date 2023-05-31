@@ -25,28 +25,33 @@ public:
         }
     }
 
-    bool operator<(const BigInteger& other) {
-        if (signo != other.signo) {
-            return signo > other.signo;
-        }
 
+bool operator<(const BigInteger& other) {
+    bool isLess = false;
+
+    if (signo != other.signo) {
+        isLess = signo > other.signo;
+    } else {
         int size1 = digitos.size();
         int size2 = other.digitos.size();
 
-        if (size1 != size2) {
-            return (size1 < size2) ^ signo;
-        }
+        if (size1 < size2) {
+            isLess = true;
+        } else if (size1 == size2) {
+            int index = size1 - 1;
+            int flag = 1;
 
-        for (int i = size1 - 1; i >= 0; --i) {
-            if (digitos[i] != other.digitos[i]) {
-                return (digitos[i] < other.digitos[i]) ^ signo;
+            while (index >= 0 && flag) {
+                if (digitos[index] != other.digitos[index]) {
+                    isLess = (!signo ? digitos[index] < other.digitos[index] : digitos[index] > other.digitos[index]);
+                    flag = 0;
+                }
+                --index;
             }
         }
-
-        return false;
     }
-};
-
+    return isLess;
+}
 
 int main() {
     /*Para la realizacion de este Uva, consiste en dividir la entrada de 2 numeros en 4, que seria la parte entera y la parte decimal

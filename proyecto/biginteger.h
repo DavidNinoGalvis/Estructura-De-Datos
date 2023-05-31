@@ -35,7 +35,7 @@ public:
     void remainder(BigInteger& num2);
     void pow(int num2);
 
-    /*Funciones Auxiliares Analizadoras*/
+    /*Funciones Analizadoras*/
     string toString();
     bool defsigno();
     int size();
@@ -60,7 +60,7 @@ public:
 bool operator<=(BigInteger& num1, vector<int>& num2);
 void sumaAux(vector<int>& num1, BigInteger& num2);
 void restaAux(vector<int>& num1, BigInteger& num2);
-void multiplicacionAux(vector<int>& num1, vector<int>& num2);
+void multiplicacionAux(vector<int>& num1, BigInteger num2, BigInteger value);
 vector<int> divisionTwo(BigInteger& num1, BigInteger& num2);
 
 #endif
